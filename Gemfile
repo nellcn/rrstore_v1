@@ -16,10 +16,13 @@ end
 gem 'mysql2'
 gem 'dotenv-rails'
 
-group :production do
-  gem 'pg'
-  gem 'puma'
-end
+gem 'execjs'
+gem 'therubyracer'
+
+#group :production do
+#  gem 'pg'
+#  gem 'puma'
+#end
 
 group :assets do
 

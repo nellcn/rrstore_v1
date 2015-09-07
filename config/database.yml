@@ -29,9 +29,9 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: rrstore_v1
+  database: rrstore
   host: localhost
   username: root
-  password: ubuntu
+  password: rrstore
 #  <<: *default
 #  database: db/production.sqlite3
