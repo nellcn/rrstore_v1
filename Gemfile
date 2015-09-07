@@ -1,5 +1,5 @@
-source 'http://ruby.taobao.org'
-
+#source 'http://ruby.taobao.org'
+source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
@@ -8,11 +8,13 @@ gem 'bootstrap-sass'
 
 # Use sqlite3 as the database for Active Record
 group :development do
-  gem 'mysql2'
   gem 'sqlite3'
   gem 'rspec-rails'#, '2.11.0'
   gem 'guard-rspec'#, '1.2.1'
 end
+
+gem 'mysql2'
+gem 'dotenv-rails'
 
 group :production do
   gem 'pg'
