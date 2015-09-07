@@ -1,0 +1,32 @@
+<!-- pay items -->
+<table style="width:900px;text-align:center;margin:20px;">
+  <tr>
+    <th id="oth" style="width:120px">Product</th>
+    <th id="oth" style="width:100px">Price</th>
+    <th id="oth" style="width:100px">QTY</th>
+    <th id="oth" style="width:120px">Sub Total</th>
+    <th id="oth" style="width:180px">Change QTY</th>
+  </tr>
+  <tr>
+    <td style="width:120px">
+      <%= link_to  image_tag(cart.prod_img, :id => "pimgs"), store_show_product_path(:id => cart.product_id) %> <br>
+      <span class="prod_name"><%= cart.prod_name %></span>
+    </td>
+    <td style="width:100px">
+      <% if  cart.discount == 1 then %> 
+        <%= currency %> <%= cart.prod_price %>
+      <% else %>
+        <s><%= currency %> <%= cart.prod_price %></s>
+        <span id="pntc"><%= currency %> <%= cart.discount_price %> </span>
+      <% end %>
+    </td>
+    <td style="width:100px">x <%= cart.amount %> </td>
+    <td style="width:120px">= <%= currency %> <%= cart.total_pay_amount %></td>
+    <td style="width:180px">
+      <%= form_tag :action => 'edit_cart', :id => cart do %>
+        <%= number_field_tag :qty, cart.amount, :class => "qty_input", :min => "0", :max => cart.product.prod_amount %>
+        <%= submit_tag "Update", :class => "btn cart_update" %>
+      <% end %>
+    </td>
+  </tr>
+</table>

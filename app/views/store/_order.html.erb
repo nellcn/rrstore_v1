@@ -1,0 +1,54 @@
+<div class="container rrscontainer">
+
+<!-- one order -->
+<div class="order">
+
+<!-- order info, left column -->
+  <div style="margin-left:20px;width:600px;float:left;">
+    <h2 style="text-align:left;"> Order ID : <%= link_to order.id, store_show_order_path(:id => order.id) %> </h2>
+    <p> User Name : <%= order.user.name %> ( <%= order.user.email %> ) </p>
+    <p> Deliver Address : <%= order.address %> </p>
+    <p style="width:300px;float:left;"> Payed At : <%= order.payed_at %> </p>
+    <p style="width:300px;float:left;"> Delivered At : <%= order.delivered_at %> </p>
+    <p> Received At : <%= order.received_at %> </p>
+  </div>
+
+  <!-- order info, right column -->
+  <div style="float:right;margin-right:30px;text-align:center;">
+    <!-- total cost -->
+    <div style="margin-top:25px;">
+      <p style="text-align:center;font-weight:bold;font-size:1.5em;color:#888;">Total : <%= currency %> <%= order.total_pay %> </p>
+    </div>
+
+    <!-- pay -->
+    <% if order.payed_at.nil? then %>
+      <div style="margin-top:5px;">
+        <%= link_to "Go to pay!", store_go_to_pay_path(:id => order.id), class: "btn ck_btn" %>
+      </div>
+    <% end %>
+
+    <% if show_weibo_btn == 1 then %>
+      <!-- share to weibo -->
+      <div style="margin-top:5px;">
+        <%= render "share_weibo", :weibomsg => "I bought lovely "+order.order_items.first.product.prod_name+" on RRStore!" %>
+      </div>
+    <% end %>
+
+  </div>
+
+  <!-- order items -->
+  <table style="width:700px;margin:20px;text-align:center;">
+    <tr style="border-bottom:2px dashed #A2CECE;">
+      <th id="oth">Product</th>
+      <th id="oth">Price</th>
+      <th id="oth">QTY</th>
+      <th id="oth">Sub Total</th>
+    </tr>
+    <% (order.order_items.sort_by{|i| [i.product_id, -i.prod_price]}).each do |order_item| %>
+      <%= render 'order_items', :order_item => order_item %>
+    <% end %>
+  </table>
+
+</div>
+
+</div>

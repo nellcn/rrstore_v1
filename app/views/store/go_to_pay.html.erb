@@ -1,0 +1,10 @@
+<h1>Will you pay <%= currency %> <%= @pay_amount %> for order <%= @order.id %> ? </h1>
+
+<div style="text-align:center;">
+<%= link_to "Yeah! Pay now!", store_pay_path(:id => @order), class: "btn ck_btn" %>
+</div>
+
+<div style="text-align:center;">
+  <%= link_to "No, later.", store_show_orders_path, class: "btn ck_btn" %>
+</div>
+

@@ -1,0 +1,17 @@
+
+<% if signed_in? %>
+<% else %>
+
+  <div class="center hero-unit" style="padding-bottom:50px;">
+    <h1>Welcome to the RR Stationery Store!</h1>
+    <br>
+    <%= link_to "Sign up now!", signup_path, class: "btn sg_btn" %>
+  </div>
+
+<% end %>
+
+
+<div class="container rrscontainer">
+  <%= render 'products' %>
+</div>
+

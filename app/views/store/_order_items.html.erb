@@ -1,0 +1,27 @@
+<tr>
+
+<!-- product icon -->
+<td style="width:150px;">
+  <%= link_to  image_tag(order_item.product.prod_img, :id => "pimgs"), store_show_product_path(:id => order_item.product_id) %> <br>
+  <span class="prod_name"><%= order_item.product.prod_name %></span> <br>
+</td>
+<td style="width:150px">
+  <% if order_item.prod_price == 0.0 then %>
+    <span id="pntc"> Free! </span>
+  <% else %>
+    <% if  order_item.prod_price == order_item.product.prod_price then %> 
+      <%= currency %> <%= order_item.prod_price %>
+    <% else %>
+      <s><%= currency %> <%= order_item.product.prod_price %></s>
+      <span id="pntc"><%= currency %> <%= order_item.prod_price %> </span>
+    <% end %>
+  <% end %>
+</td>
+<td style="width:150px"><%= order_item.prod_qty %> </td>
+<td style="width:170px">
+  <% unless order_item.sub_pay == 0.0 then %>
+    <%= currency %> <%= order_item.sub_pay %>
+  <% end %>
+</td>
+
+</tr>

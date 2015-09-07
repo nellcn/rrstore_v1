@@ -1,0 +1,11 @@
+<!-- free items -->
+<% if cart.freebies_in_cart.any? then %>
+  <div class="container" style="margin-left:220px;">
+  <p id="pntc">You get freebies!</p>
+  <% cart.freebies_in_cart.each do |f| %>
+    <span style="margin-right:80px;">
+      <%= link_to image_tag(Product.find(f.fid).prod_img, :id => "pimgs"), store_show_product_path(:id => f.fid) %> x <%= f.fqty %>
+    </span>
+  <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<% @products.each do |product| %>
+<div style="float:left;height:290px;width:240px;text-align:center;">
+
+  <%= link_to  image_tag(product.prod_img, :id => "pimg"), store_show_product_path(:id => product) %>
+  <p><%= link_to product.prod_name, store_show_product_path(:id => product), class: "prod_name"  %> </p>
+  <p>
+    <%= currency %> <%= product.prod_price %>
+    <span id="pntc">
+      <% if product.discounts.any? then %>Discount! <% end %>
+      <% if product.valid_freebies.any? then %>Freebie! <% end %>
+    </span>
+  </p>
+
+  <% if signed_in? then %>
+    <div>
+      <%= link_to 'Add to Cart', { :action => 'add_to_cart', :id => product }, class: "btn acbtn" %>
+    </div>
+  <% end %>
+
+</div>
+
+<% end %>

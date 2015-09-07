@@ -1,0 +1,7 @@
+<% if @orders.any? %>
+  <h1>My Orders</h1>
+  <%= render 'orders' %>
+<% else %>
+  <h2><%= current_user.name %>, you have no order.</h2>
+  <p style="text-align:center;"> <%= link_to "Go to store!", root_path %> </p>
+<% end %>

@@ -1,0 +1,60 @@
+<h2><%= current_user.name %>, will your create a new order?</h2>
+
+
+<div style="text-align:center;margin-bottom:20px;">
+<%= error %>
+
+<!-- address -->
+<% if current_user.orders.any? then %>
+
+  <%= form_tag :action => 'generate_order' do %>
+    Diliver address : <%= text_field_tag :address, current_user.orders.last.address %><br>
+    <%= submit_tag "Yes. Create order!", :class => "btn ck_btn" %>
+  <% end %>
+
+<% else %>
+
+  <%= form_tag :action => 'generate_order' do %>
+    Diliver address : <%= text_field_tag :address %><br>
+    <%= submit_tag "Yes. Create order!", :class => "btn ck_btn" %>
+  <% end %>
+
+<% end %>
+
+<br>
+
+<%= link_to "No. Go back to Cart.", store_show_cart_path %> |
+<%= link_to "No. Back to store.", root_path %>
+</div>
+
+<div class="container rrscontainer">
+
+<!-- one order -->
+<div class="order">
+
+  <!-- order info, right column -->
+  <div style="float:right;margin-right:30px;text-align:center;">
+    <!-- total cost -->
+    <div style="margin-top:25px;">
+      <p style="text-align:center;font-weight:bold;font-size:1.5em;color:#888;">Total : <%= currency %> <%= session[:new_order].total_pay %> </p>  
+    </div>
+
+  </div>
+
+  <!-- order items -->
+  <table style="width:700px;margin:20px;text-align:center;">
+    <tr style="border-bottom:2px dashed #A2CECE;">
+      <th id="oth">Product</th>
+      <th id="oth">Price</th>
+      <th id="oth">QTY</th>
+      <th id="oth">Sub Total</th>
+    </tr>
+    <% (session[:new_order_items].sort_by{|i| [i.product_id, -i.prod_price]}).each do |order_item| %>
+      <%= render 'order_items', :order_item => order_item %>
+    <% end %>
+  </table>
+
+</div>
+
+</div>
+

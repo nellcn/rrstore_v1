@@ -1,0 +1,7 @@
+<h2><%= current_user.name %>, this is your order (Order ID <%= @order.id %>) !</h2>
+<div style="text-align:center;margin-bottom:20px;">
+<%= link_to "All my orders", store_show_orders_path %> | 
+<%= link_to "Back to store", root_path %> 
+</div>
+
+<%= render "order",  :order => @order, :show_weibo_btn => 1 %>

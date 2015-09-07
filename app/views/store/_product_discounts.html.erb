@@ -1,0 +1,20 @@
+<% if product.discounts.any? then %>
+  <div style="padding-top:20px;padding-left:20px">
+
+    <p id="pnh"> Discounts!</p>
+
+    <table id="pntb">
+      <% product.discounts.each do |discount| %>
+        <tr>
+          <td style="width:100px;"> >= <%= discount.prod_qty%> </td>
+          <td style="width:130px;"> 
+            <span><%= currency %> <%= round_to_two_decimal (product.prod_price * discount.discount) %> </span>
+            <span id="pntc"> <%= ((1.0-discount.discount)*100).round %>% OFF!</span>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+  </div>
+<% end %>
+
