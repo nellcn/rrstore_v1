@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    redirect_to root_path unless signed_in? && current_user.isadmin == 1
     @users = User.all
   end
 
