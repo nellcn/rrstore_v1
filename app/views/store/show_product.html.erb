@@ -4,7 +4,7 @@
 
   <div style="float:left;width:400px;">
     <%= image_tag @product.prod_img, :id => "pimg" %>
-    <p class="prod_name"><%= @product.prod_name %></p>
+    <p class="prod_name" style="float:left;"><%= @product.prod_name %></p>
     <p><%= currency %> <%= @product.prod_price %></p>
     <p>QTY in stock : <%= @product.prod_amount %></p>
     <p><%= @product.prod_desc %></p>
