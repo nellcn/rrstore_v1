@@ -118,13 +118,13 @@ namespace :db do
 
     Discount.create!(
       product_id: 1,
-      prod_qty: 2,
+      prod_qty: 10,
       discount: 0.9
     )
 
     Discount.create!(
       product_id: 1,
-      prod_qty: 10,
+      prod_qty: 100,
       discount: 0.8
     )
 
@@ -144,8 +144,8 @@ namespace :db do
 
     Freebie.create!(
       product_id: 1,
-      prod_qty: 5,
-      freebie_id: 1,
+      prod_qty: 50,
+      freebie_id: 9,
       freebie_qty: 1
     )
 
