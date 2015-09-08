@@ -14,72 +14,79 @@
 ActiveRecord::Schema.define(version: 20150907033123) do
 
   create_table "carts", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "product_id", limit: 4
-    t.integer  "amount",     limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.integer  "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "discounts", force: :cascade do |t|
-    t.integer  "product_id", limit: 4
-    t.integer  "prod_qty",   limit: 4
-    t.float    "discount",   limit: 24
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "product_id"
+    t.integer  "prod_qty"
+    t.float    "discount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "freebies", force: :cascade do |t|
-    t.integer  "product_id",  limit: 4
-    t.integer  "prod_qty",    limit: 4
-    t.integer  "freebie_id",  limit: 4
-    t.integer  "freebie_qty", limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "product_id"
+    t.integer  "prod_qty"
+    t.integer  "freebie_id"
+    t.integer  "freebie_qty"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "microposts", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.integer  "order_id",   limit: 4
-    t.integer  "product_id", limit: 4
-    t.integer  "prod_qty",   limit: 4
-    t.float    "discount",   limit: 24
-    t.float    "sub_pay",    limit: 24
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.float    "prod_price", limit: 24
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.integer  "prod_qty"
+    t.float    "discount"
+    t.float    "sub_pay"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float    "prod_price"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "user_id",      limit: 4
-    t.float    "total_pay",    limit: 24
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "user_id"
+    t.float    "total_pay"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.datetime "payed_at"
     t.datetime "delivered_at"
     t.datetime "received_at"
-    t.string   "address",      limit: 255
+    t.string   "address"
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "prod_name",   limit: 255
-    t.float    "prod_price",  limit: 24
-    t.integer  "prod_amount", limit: 4
-    t.text     "prod_desc",   limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.string   "prod_img",    limit: 255
+    t.string   "prod_name"
+    t.float    "prod_price"
+    t.integer  "prod_amount"
+    t.text     "prod_desc"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "prod_img"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",            limit: 255
-    t.string   "email",           limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.string   "password_digest", limit: 255
-    t.string   "remember_token",  limit: 255
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
+    t.string   "remember_token"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end
