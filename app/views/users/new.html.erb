@@ -1,5 +1,14 @@
 <h1>Sign up</h1>
 
+<% if @user.errors.any? %>
+<div style="text-align:center;color:red;">
+  <% @user.errors.full_messages.each do |message| %>
+    <%= message %><br>
+  <% end %>
+</div>
+<br>
+<% end %>
+
 <div style="text-align:center;">
     <%= form_for(@user) do |f| %>
 
