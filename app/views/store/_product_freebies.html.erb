@@ -8,7 +8,7 @@
       <% product.valid_freebies.each do |freebie| %>
       <tr>
         <td style="width:120px;"> Per <%= freebie.prod_qty%> </td>
-        <td style="width:60px;text-align:right;float:right:"><%= link_to image_tag(Product.find(freebie.freebie_id).prod_img, :id => "pimgs"), store_show_product_path(:id => freebie.freebie_id) %></td>
+        <td style="width:100px;text-align:right;float:right:"><%= link_to image_tag(Product.find(freebie.freebie_id).prod_img, :id => "pimgs"), store_show_product_path(:id => freebie.freebie_id) %></td>
         <td style="text-align:left"> x <%= freebie.freebie_qty%> </td>
       </tr>
       <% end %>
