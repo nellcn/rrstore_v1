@@ -4,9 +4,13 @@
       <%= link_to "RR STATIONERY", store_index_path, id: "logo" %>
       <ul class="pull-right list-inline" style="overflow:hidden;" >
         <% if signed_in? %>
-          <li><%= link_to "Store", store_index_path, id: "headera" %></li>
-          <li><%= link_to "Cart", store_show_cart_path, id: "headera" %></li>
-          <li><%= link_to "Orders", store_show_orders_path, id: "headera" %></li>
+          <% if current_user.isadmin == 1 %>
+            <li><%= link_to "Products", products_path, id: "headera" %></li>
+          <% else %>
+            <li><%= link_to "Store", store_index_path, id: "headera" %></li>
+            <li><%= link_to "Cart", store_show_cart_path, id: "headera" %></li>
+            <li><%= link_to "Orders", store_show_orders_path, id: "headera" %></li>
+          <% end %>
           <li><%= link_to "Settings", edit_user_path(current_user), id: "headera" %></li>
           <li><%= link_to "Sign out", signout_path, id: "headera" %></li>
         <% else %>
