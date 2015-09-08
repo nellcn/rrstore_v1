@@ -12,7 +12,7 @@
 
   </div>
 
-  <div style="float:right;width:300px;">
+  <div style="float:right;width:350px;">
     <div style="text-align:center;padding-top:20px;"><%= link_to ' Add to Cart ', { :action => 'add_to_cart', :id => @product }, class: "btn acbtn" %> </div>
     <%= render "product_discounts", :product => @product  %>
     <%= render "product_freebies", :product => @product  %>
