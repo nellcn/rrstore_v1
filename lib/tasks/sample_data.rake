@@ -164,9 +164,9 @@ namespace :db do
     )
     
     Freebie.create!(
-      product_id: 7,
+      product_id: 8,
       prod_qty: 10,
-      freebie_id: 1,
+      freebie_id: 3,
       freebie_qty: 2
     )
 
