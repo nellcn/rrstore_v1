@@ -22,7 +22,7 @@
       <%= f.text_field :prod_price %> <br>
 
       <%= f.label :prod_amount %> <br>
-      <%= f.number_field :prod_amount %> <br>
+      <%= f.number_field :prod_amount, :min => "0", :max => 9999 %> <br>
 
       <%= f.label :prod_img %> <br>
       <%= f.text_field :prod_img %> <br>
