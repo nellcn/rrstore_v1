@@ -71,7 +71,7 @@ class StoreController < ApplicationController
   def free_qty_in_other_cart(cart, product)
     free_qty = 0
     current_user.carts.find_all{|i| i.id != cart.id}.each do |c|
-      @freebie_rules = c.product.valid_freebies.find_all{|i| i.product_id==product.id}
+      @freebie_rules = c.product.valid_freebies.find_all{|i| i.freebie_id==product.id}
       if @freebie_rules
         @freebie_rules.each do |f|
           fq = ( c.amount / f.prod_qty ).round * f.freebie_qty
@@ -86,7 +86,7 @@ class StoreController < ApplicationController
 
   # count of free specified product 
   def free_qty_to_add(pay_product, qty, free_product)
-    f = pay_product.valid_freebies.find{|i| i.product_id==free_product.id}
+    f = pay_product.valid_freebies.find{|i| i.freebie_id==free_product.id}
     if f
       free_qty = ( qty / f.prod_qty ).round * f.freebie_qty
     else
