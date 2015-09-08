@@ -4,11 +4,6 @@ namespace :db do
 
     ## create users
 
-    User.create!(name: "tester",
-                 email: "tester@163.org",
-                 password: "111111",
-                 password_confirmation: "111111")
-
     8.times do |n|
       name  = Faker::Name.name
       email = "tester-#{n+1}@163.org"
@@ -84,6 +79,76 @@ namespace :db do
       prod_desc: "Knife",
       prod_img: "knife.jpg")
 
+    Product.create!(
+      prod_name: "Binding Machine",
+      prod_price: 4,
+      prod_amount: 50,
+      prod_desc: "Binding Machine",
+      prod_img: "bindingmachine.jpg")
+
+    Product.create!(
+      prod_name: "Color Pencil",
+      prod_price: 0.6,
+      prod_amount: 500,
+      prod_desc: "Color Pencil",
+      prod_img: "colorpencils.jpg")
+
+    Product.create!(
+      prod_name: "Cup",
+      prod_price: 1.63,
+      prod_amount: 500,
+      prod_desc: "Cup",
+      prod_img: "cup.jpg")
+
+    Product.create!(
+      prod_name: "Pen",
+      prod_price: 4.3,
+      prod_amount: 100,
+      prod_desc: "Black pen",
+      prod_img: "pen-2.jpg")
+
+    Product.create!(
+      prod_name: "Pen Case",
+      prod_price: 3,
+      prod_amount: 100,
+      prod_desc: "Pen case",
+      prod_img: "pencase.jpg")
+
+    Product.create!(
+      prod_name: "Binding Machine",
+      prod_price: 4,
+      prod_amount: 50,
+      prod_desc: "Binding Machine",
+      prod_img: "bindingmachine.jpg")
+
+    Product.create!(
+      prod_name: "Color Pencil",
+      prod_price: 0.6,
+      prod_amount: 500,
+      prod_desc: "Color Pencil",
+      prod_img: "colorpencils.jpg")
+
+    Product.create!(
+      prod_name: "Cup",
+      prod_price: 1.63,
+      prod_amount: 500,
+      prod_desc: "Cup",
+      prod_img: "cup.jpg")
+
+    Product.create!(
+      prod_name: "Pen",
+      prod_price: 4.3,
+      prod_amount: 100,
+      prod_desc: "Black pen",
+      prod_img: "pen-2.jpg")
+
+    Product.create!(
+      prod_name: "Pen Case",
+      prod_price: 3,
+      prod_amount: 100,
+      prod_desc: "Pen case",
+      prod_img: "pencase.jpg")
+
     ### discount
 
     Discount.create!(
@@ -104,6 +169,14 @@ namespace :db do
       discount: 0.7
     )
 
+    Discount.create!(
+      product_id: 3,
+      prod_qty: 100,
+      discount: 0.9
+    )
+
+    # freebies
+
     Freebie.create!(
       product_id: 1,
       prod_qty: 5,
@@ -118,6 +191,13 @@ namespace :db do
       freebie_qty: 1
     )
 
+    Freebie.create!(
+      product_id: 3,
+      prod_qty: 50,
+      freebie_id: 7,
+      freebie_qty: 1
+    )
+    
     Freebie.create!(
       product_id: 5,
       prod_qty: 10,
