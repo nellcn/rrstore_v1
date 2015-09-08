@@ -114,41 +114,6 @@ namespace :db do
       prod_desc: "Pen case",
       prod_img: "pencase.jpg")
 
-    Product.create!(
-      prod_name: "Binding Machine",
-      prod_price: 4,
-      prod_amount: 50,
-      prod_desc: "Binding Machine",
-      prod_img: "bindingmachine.jpg")
-
-    Product.create!(
-      prod_name: "Color Pencil",
-      prod_price: 0.6,
-      prod_amount: 500,
-      prod_desc: "Color Pencil",
-      prod_img: "colorpencils.jpg")
-
-    Product.create!(
-      prod_name: "Cup",
-      prod_price: 1.63,
-      prod_amount: 500,
-      prod_desc: "Cup",
-      prod_img: "cup.jpg")
-
-    Product.create!(
-      prod_name: "Pen",
-      prod_price: 4.3,
-      prod_amount: 100,
-      prod_desc: "Black pen",
-      prod_img: "pen-2.jpg")
-
-    Product.create!(
-      prod_name: "Pen Case",
-      prod_price: 3,
-      prod_amount: 100,
-      prod_desc: "Pen case",
-      prod_img: "pencase.jpg")
-
     ### discount
 
     Discount.create!(
