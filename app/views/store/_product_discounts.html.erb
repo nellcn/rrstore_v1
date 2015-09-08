@@ -7,7 +7,7 @@
       <% product.discounts.each do |discount| %>
         <tr>
           <td style="width:130px;"> QTY >= <%= discount.prod_qty%> </td>
-          <td style="width:160px;"> 
+          <td style="width:200px;"> 
             <span><%= currency %> <%= round_to_two_decimal (product.prod_price * discount.discount) %> </span>
             <span id="pntc"> <%= ((1.0-discount.discount)*100).round %>% OFF!</span>
           </td>
