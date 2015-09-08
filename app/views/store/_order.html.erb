@@ -16,20 +16,20 @@
   <!-- order info, right column -->
   <div style="float:right;margin-right:30px;text-align:center;">
     <!-- total cost -->
-    <div style="margin-top:25px;">
+    <div style="margin-top:30px;">
       <p style="text-align:center;font-weight:bold;font-size:1.5em;color:#888;">Total : <%= currency %> <%= order.total_pay %> </p>
     </div>
 
     <!-- pay -->
     <% if order.payed_at.nil? then %>
-      <div style="margin-top:5px;">
+      <div style="margin-top:10px;">
         <%= link_to "Go to pay!", store_go_to_pay_path(:id => order.id), class: "btn ck_btn" %>
       </div>
     <% end %>
 
     <% if show_weibo_btn == 1 then %>
       <!-- share to weibo -->
-      <div style="margin-top:5px;">
+      <div style="margin-top:10px;">
         <%= render "share_weibo", :weibomsg => "I bought lovely "+order.order_items.first.product.prod_name+" on RRStore!" %>
       </div>
     <% end %>
