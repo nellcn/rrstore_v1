@@ -1,11 +1,11 @@
 <tr>
 
 <!-- product icon -->
-<td style="width:150px;">
+<td style="width:140px;">
   <%= link_to  image_tag(order_item.product.prod_img, :id => "pimgs"), store_show_product_path(:id => order_item.product_id) %> <br>
   <span class="prod_name"><%= order_item.product.prod_name %></span> <br>
 </td>
-<td style="width:150px">
+<td style="width:140px">
   <% if order_item.prod_price == 0.0 then %>
     <span id="pntc"> Free! </span>
   <% else %>
@@ -17,8 +17,8 @@
     <% end %>
   <% end %>
 </td>
-<td style="width:150px"><%= order_item.prod_qty %> </td>
-<td style="width:170px">
+<td style="width:140px"><%= order_item.prod_qty %> </td>
+<td style="width:140px">
   <% unless order_item.sub_pay == 0.0 then %>
     <%= currency %> <%= order_item.sub_pay %>
   <% end %>
