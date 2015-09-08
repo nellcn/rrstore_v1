@@ -144,15 +144,15 @@ namespace :db do
 
     Freebie.create!(
       product_id: 1,
-      prod_qty: 50,
-      freebie_id: 9,
+      prod_qty: 10,
+      freebie_id: 1,
       freebie_qty: 1
     )
 
     Freebie.create!(
       product_id: 1,
-      prod_qty: 10,
-      freebie_id: 2,
+      prod_qty: 50,
+      freebie_id: 9,
       freebie_qty: 1
     )
 
@@ -164,7 +164,7 @@ namespace :db do
     )
     
     Freebie.create!(
-      product_id: 5,
+      product_id: 7,
       prod_qty: 10,
       freebie_id: 1,
       freebie_qty: 2
