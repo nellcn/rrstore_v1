@@ -27,6 +27,8 @@
       <%= f.label :password_confirmation, "Confirm Password" %> <br>
       <%= f.password_field :password_confirmation %> <br>
 
+      <%= f.hidden_field :isadmin, :value => f.isadmin %> <br>
+
       <%= f.submit "Save changes", class: "btn sg_btn" %>
     <% end %>
 

@@ -11,8 +11,15 @@ namespace :db do
       User.create!(name: name,
                    email: email,
                    password: password,
-                   password_confirmation: password)
+                   password_confirmation: password,
+                   isadmin: 0)
     end
+
+    User.create!(name: "admin",
+                 email: "admin@rrstore.com",
+                 password: "admin",
+                 password_confirmation: "admin",
+                 isadmin: 1)
 
     ## create products
 

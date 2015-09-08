@@ -1,12 +1,14 @@
 class ProductsController < ApplicationController
 
   def index
+    redirect_to root_path unless signed_in? && current_user.isadmin == 1
     @products = Product.all
   end
 
   # GET /products/1/edit
   def edit
-   @product = Product.find(params[:id])
+    redirect_to root_path unless signed_in? && current_user.isadmin == 1
+    @product = Product.find(params[:id])
   end
 
   # PATCH/PUT /products/1
@@ -27,7 +29,6 @@ class ProductsController < ApplicationController
   end
 
   private
-
     def product_params
       params.require(:product).permit(:prod_name, :prod_price, :prod_amount, :prod_desc, :prod_img)
     end
