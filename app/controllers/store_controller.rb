@@ -31,9 +31,6 @@ class StoreController < ApplicationController
   ## cart
 
   def show_cart
-    @cart_items = current_user.carts
-    @total_price = get_cart_total_cost
-    @errors = current_user.errors
   end
 
   def add_to_cart
@@ -97,8 +94,10 @@ class StoreController < ApplicationController
   def edit_cart
     cart_item = current_user.carts.find(params[:id])
     new_qty = params[:qty].to_i
-    if new_qty > 0
-
+    if new_qty < 1
+      cart_item.delete
+      redirect_to store_show_cart_path, notice: cart_item.product.prod_name+" is removed from cart."
+    else
       if new_qty > cart_item.product.prod_amount
         redirect_to store_show_cart_path, error: "Fail to update QTY of "+cart_item.product.prod_name+". You order too many "+cart_item.product.prod_name+"!"
       else
@@ -114,11 +113,6 @@ class StoreController < ApplicationController
           redirect_to store_show_cart_path, notice: " QTY of "+cart_item.product.prod_name+" is successfully updated."
         end
       end
-
-    else
-      # remove if new qty < 0
-      cart_item.delete
-      redirect_to store_show_cart_path
     end
   end
 

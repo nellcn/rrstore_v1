@@ -1,4 +1,4 @@
-<% if @cart_items.any? then %>
+<% if current_user.carts.any? then %>
 
   <h1>My Cart</h1>
 
@@ -9,35 +9,28 @@
 
   <div class="container rrscontainer">
  
-  <div class="order">
-  <% @cart_items.sort_by{|i| i.product_id}.each do |cart| %>
-    <!-- pay items -->
-    <%= render 'cart_pay_items', :cart => cart %>
-    <!-- free items -->
-    <%= render 'cart_free_items', :cart => cart %>
-    <!-- line -->
-    <div style="float:none"><hr style="width:800px;"></div>
-  <% end %>
+    <div class="order">
+    <% current_user.carts.sort_by{|i| i.product_id}.each do |cart| %>
+      <%= render 'cart_pay_items', :cart => cart %>
+      <%= render 'cart_free_items', :cart => cart %>
+      <div style="float:none"><hr style="width:800px;"></div>
+    <% end %>
 
-  <!-- total cost -->
-<!--  <div class="container rrscontainer"> -->
-    <div style="text-align:center;margin:15px;">
-      <span style="font-weight:bold;font-size:1.5em;color:#606060;">Total : <%= currency %> <%= @total_price %> </span>
-    </div>
+    <%= render 'cart_total_cost' %>
+
     <div style="text-align:center;">
       <%= link_to "Check Out", {:action => 'check_out'} , :class => "btn ck_btn" %>
     </div>
-<!--  </div> -->
 
-  <br>
-  <br>
+    <br>
 
-  </div>
+    </div>
 
   </div>
 <% else %>
 
   <h2><%= current_user.name %>, your cart is empty!</h2>
   <p style="text-align:center;"> <%= link_to "Go to store!", root_path %> </p>
+
 <% end %>
 
